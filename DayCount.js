@@ -6,18 +6,14 @@ export default function Count({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      <Text>{user.toUpperCase()}!</Text>
-      <p></p>
+      <Text>{user.toUpperCase()}!{"\n\n"}</Text>
       <Text>Your birth date is: {birthDate}.</Text>
       <Text>Today's date is: {thisDate}.</Text>
       <Text>So, you are {age} years old right now.</Text>
-      <p></p>
-      <Text>In fact ...</Text>
-      <p></p>
-      <Text style={styles.centered}>{message}</Text>
-      <p></p>
+      <Text>{"\n\n"}In fact ...{"\n\n"}</Text>
+      <Text style={styles.centered}>{message + "\n\n"}</Text>
       <Pressable onPress={() => { navigation.navigate("Birthday Tool") }} style={styles.mybutton}>
-        <Text style={styles.buttontext}>GO BACK TO<br/>THE TOOL</Text>
+        <Text style={styles.buttontext}>GO BACK TO{"\n"}THE TOOL</Text>
       </Pressable>
     </View>
   );

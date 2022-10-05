@@ -15,24 +15,18 @@ export default function BdayHome({ navigation }) {
     <View style={styles.container}>
 
       <ReceiveInput name="Your Name" placeholder={userName} callBack={(newValue) => {setShowButton(false); setUserName(newValue);}}/>
-      <p></p>
       <ReceiveInput name="Birth Date (IN FORMAT SHOWN)" placeholder={today} callBack={(newValue) => {setShowButton(false); setBirthDate(newValue);}}/>
-      <p></p>
-
-      <Text>Hey, {userName}. You say you were born on {birthDate}.</Text>
-      <p></p>
+      <Text>Hey, {userName}. You say you were born on {birthDate}.{"\n\n\n"}</Text>
       <Pressable onPress={() => { setAge(getAge(birthDate)); setShowButton(true); }} style={styles.mybutton}>
-        <Text style={styles.buttontext}>CALCULATE<br/>YOUR AGE</Text>
+        <Text style={styles.buttontext}>CALCULATE{"\n"}YOUR AGE</Text>
       </Pressable>
       {showButton && age>=0
         ? (<>
-            <p></p>
-            <Text>You are {age} years old right now.</Text>
-            <p></p>
+            <Text>You are {age} years old right now.{"\n\n"}</Text>
             <Pressable onPress={() => { setShowButton(false);
                                         navigation.navigate("Day Count", {user: userName, birthDate: birthDate, thisDate: today, age: age});}}
                        style={styles.mybutton}>
-              <Text style={styles.buttontext}>TODAY<br/>vs<br/>YOUR BIRTHDAY</Text>
+              <Text style={styles.buttontext}>TODAY{"\n"}vs{"\n"}YOUR BIRTHDAY</Text>
             </Pressable>
           </>)
         : null }
@@ -58,11 +52,12 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(155,205,255)",
     fontWeight: "bold",
     textAlign: "center",
-    borderRadius: "10px"
+    borderRadius: "10px",
+    marginBottom: "1em"
   },
   buttontext: {
     color: "rgb(40,40,40)",
-    fontWeight: "bold"
+    fontWeight: "bold",
   }
 });
 
